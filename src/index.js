@@ -8,6 +8,10 @@ const app = express();
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Backend API!');
+});
+
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err));
